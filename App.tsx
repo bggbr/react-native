@@ -11,53 +11,16 @@ type RootStackParamList = {
   Home: undefined;
   Details: undefined;
 };
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
-type DetailsScreenProps = NativeStackScreenProps<ParamListBase, 'Details'>;
 
-function HomeScreen({navigation}: HomeScreenProps) {
-  const onClick = useCallback(() => {
-    navigation.navigate('Details');
-  }, [navigation]);
-
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableHighlight onPress={onClick}>
-        <Text>Home Screen</Text>
-      </TouchableHighlight>
-    </View>
-  );
-}
-
-function DetailsScreen({navigation}: DetailsScreenProps) {
-  const onClick = useCallback(() => {
-    navigation.navigate('Home');
-  }, [navigation]);
-
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableHighlight onPress={onClick}>
-        <Text>Details Screen</Text>
-      </TouchableHighlight>
-    </View>
-  );
-}
-
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-const Tab = createBottomTabNavigator();
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Details" component={DetailsScreen} />
-    </Tab.Navigator>
-  );
-}
+import HomeScreen from './src/components/HomeScreen';
+import DetailsScreen from './src/components/DetailScreen';
+import BottomTab from './src/common/BottomTab';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 function App() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <BottomTab />
     </NavigationContainer>
   );
 }
