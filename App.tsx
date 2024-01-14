@@ -10,13 +10,11 @@ import {useCallback} from 'react';
 type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  Chair: undefined;
 };
 
-import HomeScreen from './src/components/HomeScreen';
-import DetailsScreen from './src/components/DetailScreen';
 import BottomTab from './src/common/BottomTab';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
 function App() {
   return (
     <NavigationContainer>

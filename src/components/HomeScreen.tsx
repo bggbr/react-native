@@ -13,22 +13,18 @@ import MainNavigation from '../common/MainNavigation';
 type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  Chair: undefined;
 };
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function HomeScreen({navigation}: HomeScreenProps) {
   const onClick = useCallback(() => {
-    navigation.navigate('Details');
+    navigation.navigate('Chair');
   }, [navigation]);
 
   return (
     <ScrollView style={styles.container}>
-      {/* style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} */}
-      {/* <TouchableHighlight onPress={onClick}>
-            <Text>Home Screen</Text>
-        </TouchableHighlight> */}
-
       <MainNavigation />
       <TouchableHighlight
         style={styles.box}
@@ -36,18 +32,6 @@ function HomeScreen({navigation}: HomeScreenProps) {
         underlayColor={'blue'}>
         <Text>Box 1 (Click to go to Details)</Text>
       </TouchableHighlight>
-      <View style={styles.box}>
-        <Text>Box 2</Text>
-      </View>
-      <View style={styles.box}>
-        <Text>Box 3</Text>
-      </View>
-      <View style={styles.box}>
-        <Text>Box 4</Text>
-      </View>
-      <View style={styles.box}>
-        <Text>Box 4</Text>
-      </View>
     </ScrollView>
   );
 }

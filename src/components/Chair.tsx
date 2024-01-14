@@ -1,7 +1,11 @@
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 
-function chair() {
-  return <View>test</View>;
+function Chair() {
+  return (
+    <View>
+      <Text>test</Text>
+    </View>
+  );
 }
 
-export default chair;
+export default Chair;
