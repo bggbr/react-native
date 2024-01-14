@@ -1,13 +1,15 @@
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import ChairDetail from './ChairDetail';
 import {useCallback} from 'react';
 const Stack = createNativeStackNavigator();
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 function ChairMainScreen({navigation}: HomeScreenProps) {
   return (
     <View>
-      {/* Chair 메인 화면 내용 */}
+      <Text>Chair Main Page</Text>
       <Button
         title="Go to Chair Detail"
         onPress={() => navigation.navigate('ChairDetail')}
@@ -25,18 +27,37 @@ type RootStackParamList = {
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function Chair({navigation}: HomeScreenProps) {
-  const onClick = useCallback(() => {
-    navigation.navigate('ChairDetail');
-  }, [navigation]);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{}}>
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // Chair 페이지로 이동하는 코드
+                navigation.navigate('Home');
+              }}>
+              <Ionicons name="arrow-back" size={24} color="black" />
+            </TouchableOpacity>
+          ),
+        }}
         name="ChairMain"
         component={ChairMainScreen}
       />
       <Stack.Screen
-        // options={{headerShown: false}}
+        options={{
+          headerShown: true, // 헤더 표시
+          // headerLeft: () => (
+          //   <TouchableOpacity
+          //     onPress={() => {
+          //       // Chair 페이지로 이동하는 코드
+          //       navigation.navigate('Chair');
+          //     }}>
+          //     <Ionicons name="arrow-back" size={24} color="black" />
+          //   </TouchableOpacity>
+          // ),
+        }}
         name="ChairDetail"
         component={ChairDetail}
       />
