@@ -12,6 +12,7 @@ function BottomTab() {
         name="Home"
         component={HomeScreen}
         options={{
+          //  headerShown: false,
           tabBarIcon: ({focused, color, size}) => (
             <Ionicons
               name={focused ? 'home' : 'home-outline'}
