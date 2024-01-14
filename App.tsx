@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native'; // SafeAreaView 또는 View를 import
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 
 type RootStackParamList = {
   Home: undefined;
@@ -10,7 +10,6 @@ type RootStackParamList = {
   Chair: undefined;
 };
 
-import BottomTab from './src/common/BottomTab';
 import Chair from './src/components/Chair';
 import HomeScreen from './src/components/HomeScreen';
 import DetailsScreen from './src/components/DetailScreen';
@@ -27,7 +26,6 @@ function HomeStackScreen() {
         name="Home"
         component={HomeScreen}
         options={{
-          // headerShown: false,
           headerTitle: '',
           headerLeft: () => (
             <Text style={{fontSize: 24, fontWeight: 'bold'}}>BM</Text>
@@ -43,9 +41,8 @@ function HomeStackScreen() {
         name="Chair"
         component={Chair}
         options={{
-          // 다음 화면의 헤더를 커스텀해서 뒤로 가기 버튼의 동작을 정의
           headerShown: false,
-          headerLeft: () => null, // 뒤로 가기 버튼 숨김
+          headerLeft: () => null,
         }}
       />
     </HomeStack.Navigator>

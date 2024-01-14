@@ -16,7 +16,7 @@ type RootStackParamList = {
   Chair: undefined;
 };
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList>;
 
 function HomeScreen({navigation}: HomeScreenProps) {
   const onClick = useCallback(() => {
@@ -39,6 +39,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   box: {
     alignItems: 'center',

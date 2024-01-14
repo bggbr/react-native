@@ -21,45 +21,44 @@ function ChairMainScreen({navigation}: HomeScreenProps) {
 type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  ChairMain: undefined;
   ChairDetail: undefined;
 };
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList>;
 
 function Chair({navigation}: HomeScreenProps) {
   return (
-    <Stack.Navigator screenOptions={{}}>
+    <Stack.Navigator>
       <Stack.Screen
+        name="ChairMain"
+        component={ChairMainScreen}
         options={{
           headerShown: true,
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => {
-                // Chair 페이지로 이동하는 코드
                 navigation.navigate('Home');
               }}>
               <Ionicons name="arrow-back" size={24} color="black" />
             </TouchableOpacity>
           ),
         }}
-        name="ChairMain"
-        component={ChairMainScreen}
       />
       <Stack.Screen
-        options={{
-          headerShown: true, // 헤더 표시
-          // headerLeft: () => (
-          //   <TouchableOpacity
-          //     onPress={() => {
-          //       // Chair 페이지로 이동하는 코드
-          //       navigation.navigate('Chair');
-          //     }}>
-          //     <Ionicons name="arrow-back" size={24} color="black" />
-          //   </TouchableOpacity>
-          // ),
-        }}
         name="ChairDetail"
         component={ChairDetail}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('ChairMain');
+              }}>
+              <Ionicons name="arrow-back" size={24} color="black" />
+            </TouchableOpacity>
+          ),
+        }}
       />
     </Stack.Navigator>
   );
