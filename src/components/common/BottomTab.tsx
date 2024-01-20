@@ -1,8 +1,8 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../components/HomeScreen';
-import DetailsScreen from '../components/DetailScreen';
-import Chair from '../components/Chair';
+import HomeScreen from '../HomeScreen';
+import DetailsScreen from '../DetailScreen';
+import Chair from '../chair/Chair';
 
 const Tab = createBottomTabNavigator();
 function BottomTab() {

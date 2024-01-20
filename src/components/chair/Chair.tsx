@@ -2,7 +2,6 @@ import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import ChairDetail from './ChairDetail';
-import {useCallback} from 'react';
 const Stack = createNativeStackNavigator();
 import Ionicons from 'react-native-vector-icons/Ionicons';
 

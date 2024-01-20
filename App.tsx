@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, Text, TouchableOpacity, Image} from 'react-native';
 
 type RootStackParamList = {
   Home: undefined;
@@ -10,10 +10,11 @@ type RootStackParamList = {
   Chair: undefined;
 };
 
-import Chair from './src/components/Chair';
+import Chair from './src/components/chair/Chair';
 import HomeScreen from './src/components/HomeScreen';
 import DetailsScreen from './src/components/DetailScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Barrel from './src/components/barrel/Barrel';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,7 +29,11 @@ function HomeStackScreen() {
         options={{
           headerTitle: '',
           headerLeft: () => (
-            <Text style={{fontSize: 24, fontWeight: 'bold'}}>BM</Text>
+            <Image
+              source={require('./assets/logo.png')}
+              style={{width: 40, height: 40}}
+            />
+            // <Text style={{fontSize: 24, fontWeight: 'bold'}}>BM</Text>
           ),
           headerRight: () => (
             <TouchableOpacity>
@@ -40,6 +45,14 @@ function HomeStackScreen() {
       <HomeStack.Screen
         name="Chair"
         component={Chair}
+        options={{
+          headerShown: false,
+          headerLeft: () => null,
+        }}
+      />
+      <HomeStack.Screen
+        name="Barrel"
+        component={Barrel}
         options={{
           headerShown: false,
           headerLeft: () => null,
