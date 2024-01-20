@@ -14,7 +14,7 @@ import MainNavigation from './common/MainNavigation';
 
 type RootStackParamList = {
   Home: undefined;
-  Details: undefined;
+  Category: undefined;
   Chair: undefined;
   Barrel: undefined;
 };

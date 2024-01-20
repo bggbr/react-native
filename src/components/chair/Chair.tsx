@@ -2,24 +2,13 @@ import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import ChairDetail from './ChairDetail';
+import ChairMainScreen from './ChairMainScreen';
 const Stack = createNativeStackNavigator();
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-function ChairMainScreen({navigation}: HomeScreenProps) {
-  return (
-    <View>
-      <Text>Chair Main Page</Text>
-      <Button
-        title="Go to Chair Detail"
-        onPress={() => navigation.navigate('ChairDetail')}
-      />
-    </View>
-  );
-}
-
 type RootStackParamList = {
   Home: undefined;
-  Details: undefined;
+  Category: undefined;
   ChairMain: undefined;
   ChairDetail: undefined;
 };

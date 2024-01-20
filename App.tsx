@@ -12,7 +12,7 @@ type RootStackParamList = {
 
 import Chair from './src/components/chair/Chair';
 import HomeScreen from './src/components/HomeScreen';
-import DetailsScreen from './src/components/DetailScreen';
+import DetailsScreen from './src/components/CategoryScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Barrel from './src/components/barrel/Barrel';
 
@@ -82,7 +82,7 @@ function App() {
           }}
         />
         <Tab.Screen
-          name="Details"
+          name="Category"
           component={DetailsScreen}
           options={{
             headerShown: false,

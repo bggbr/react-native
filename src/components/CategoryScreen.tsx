@@ -5,12 +5,12 @@ import {Text, TouchableHighlight, View} from 'react-native';
 import {useCallback} from 'react';
 type RootStackParamList = {
   Home: undefined;
-  Details: undefined;
+  Category: undefined;
 };
 
-type DetailsScreenProps = NativeStackScreenProps<ParamListBase, 'Details'>;
+type CategoryScreenProps = NativeStackScreenProps<ParamListBase, 'Category'>;
 
-function DetailsScreen({navigation}: DetailsScreenProps) {
+function CategoryScreen({navigation}: CategoryScreenProps) {
   const onClick = useCallback(() => {
     navigation.navigate('Home');
   }, [navigation]);
@@ -18,10 +18,10 @@ function DetailsScreen({navigation}: DetailsScreenProps) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <TouchableHighlight onPress={onClick}>
-        <Text>Details Screen</Text>
+        <Text>Category Screen</Text>
       </TouchableHighlight>
     </View>
   );
 }
 
-export default DetailsScreen;
+export default CategoryScreen;

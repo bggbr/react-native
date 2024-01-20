@@ -1,7 +1,7 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../HomeScreen';
-import DetailsScreen from '../DetailScreen';
+import CategoryScreen from '../CategoryScreen';
 import Chair from '../chair/Chair';
 
 const Tab = createBottomTabNavigator();
@@ -22,10 +22,10 @@ function BottomTab() {
           ),
         }}
       />
-      <Tab.Screen name="Chair" component={Chair} />
+      {/* <Tab.Screen name="Chair" component={Chair} /> */}
       <Tab.Screen
-        name="Details"
-        component={DetailsScreen}
+        name="Category"
+        component={CategoryScreen}
         options={{
           tabBarIcon: ({focused, color, size}) => (
             <Ionicons
