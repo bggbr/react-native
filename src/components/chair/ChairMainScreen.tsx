@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: 'bold',
-    // alignItems: 'center',
     marginTop: 20,
     marginBottom: 10,
     marginLeft: 10,
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     margin: 10,
     textAlign: 'justify', // 텍스트 정렬
-    lineHeight: 20, // 줄 간격 조정
+    lineHeight: 15, // 줄 간격 조정
   },
 });
 

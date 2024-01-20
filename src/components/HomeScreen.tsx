@@ -3,20 +3,23 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {
   ScrollView,
   Text,
-  TouchableHighlight,
   TouchableOpacity,
   View,
   StyleSheet,
   Dimensions,
 } from 'react-native';
 import {useCallback} from 'react';
-import MainNavigation from './common/MainNavigation';
 
 type RootStackParamList = {
   Home: undefined;
   Category: undefined;
-  Chair: undefined;
+  Chair: undefined | {screen: keyof ChairStackParamList};
   Barrel: undefined;
+};
+
+type ChairStackParamList = {
+  ChairMain: undefined;
+  ChairDetail: undefined;
 };
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList>;
@@ -28,7 +31,6 @@ function HomeScreen({navigation}: HomeScreenProps) {
     },
     [navigation],
   );
-
   return (
     <ScrollView style={styles.scrollView}>
       <Text style={styles.title}>필라테스 기구</Text>
@@ -60,20 +62,20 @@ function HomeScreen({navigation}: HomeScreenProps) {
         <View style={styles.item}>
           <TouchableOpacity
             style={styles.box}
-            onPress={() => onClick('Barrel')}></TouchableOpacity>
-          <Text style={styles.text}>캐딜락</Text>
+            onPress={() => onClick('Chair')}></TouchableOpacity>
+          <Text style={styles.text}>체어</Text>
         </View>
         <View style={styles.item}>
           <TouchableOpacity
             style={styles.box}
             onPress={() => onClick('Barrel')}></TouchableOpacity>
-          <Text style={styles.text}>캐딜락</Text>
+          <Text style={styles.text}>바렐</Text>
         </View>
         <View style={styles.item}>
           <TouchableOpacity
             style={styles.box}
             onPress={() => onClick('Barrel')}></TouchableOpacity>
-          <Text style={styles.text}>캐딜락</Text>
+          <Text style={styles.text}>리포머</Text>
         </View>
         <View style={styles.item}>
           <TouchableOpacity
@@ -89,10 +91,15 @@ function HomeScreen({navigation}: HomeScreenProps) {
         <Text>Box 1 (Click to go to Details)</Text>
       </TouchableHighlight> */}
       <Text style={styles.title}>지금 뜨는 인기 클래스</Text>
-
       <ScrollView style={styles.horizontalScrollView} horizontal={true}>
         <View style={styles.horizontalItem}>
-          <TouchableOpacity style={styles.horizontalBox}></TouchableOpacity>
+          <TouchableOpacity
+            style={styles.horizontalBox}
+            onPress={() =>
+              navigation.navigate('Chair', {
+                screen: 'ChairDetail',
+              })
+            }></TouchableOpacity>
           <Text style={styles.horizontalText}>하체 강화 시퀀스</Text>
         </View>
         <View style={styles.horizontalItem}>

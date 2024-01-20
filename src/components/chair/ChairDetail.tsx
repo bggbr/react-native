@@ -1,11 +1,25 @@
-import {View, Text} from 'react-native';
+import {useEffect} from 'react';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {WebView} from 'react-native-webview';
 
-function ChairDetail() {
+const ChairDetail = () => {
+  const background = require('../../../assets/test.mp4');
+
   return (
     <View>
-      <Text>ChairDetail Page</Text>
+      <Text>ChairDetail</Text>
     </View>
   );
-}
+};
+
+var styles = StyleSheet.create({
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+});
 
 export default ChairDetail;
